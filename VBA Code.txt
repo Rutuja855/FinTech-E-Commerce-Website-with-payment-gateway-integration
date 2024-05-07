@@ -1,0 +1,127 @@
+VBA Code For PPT :-
+Sub CreatePresentation()
+    Dim pptApp As Object
+    Dim pptPres As Object
+    Dim slideIndex As Integer
+    
+    ' Create a new instance of PowerPoint application
+    Set pptApp = CreateObject("PowerPoint.Application")
+    pptApp.Visible = True ' Make PowerPoint visible
+    
+    ' Create a new presentation
+    Set pptPres = pptApp.Presentations.Add
+    
+    ' Slide 1: Title Slide
+    slideIndex = slideIndex + 1
+    With pptPres.Slides.Add(slideIndex, 1) ' 1 represents ppLayoutTitle
+        .Shapes(1).TextFrame.TextRange.Text = "Full-Stack E-Commerce Website Presentation"
+        .Shapes(2).TextFrame.TextRange.Text = "Built with MERN Stack and Razorpay Integration"
+    End With
+    
+    ' Slide 2: Group Members
+    slideIndex = slideIndex + 1
+    With pptPres.Slides.Add(slideIndex, 5) ' 5 represents ppLayoutTable
+        Dim tbl As Object
+        Set tbl = .Shapes.AddTable(NumRows:=5, NumColumns:=4, Left:=100, Top:=100, Width:=500, Height:=300).Table
+        With tbl
+            ' Set column headers
+            .Cell(1, 1).Shape.TextFrame.TextRange.Text = "No."
+            .Cell(1, 2).Shape.TextFrame.TextRange.Text = "Name"
+            .Cell(1, 3).Shape.TextFrame.TextRange.Text = "Roll No."
+            .Cell(1, 4).Shape.TextFrame.TextRange.Text = "PRN"
+            
+            ' Add group members' information
+            .Cell(2, 1).Shape.TextFrame.TextRange.Text = "1"
+            .Cell(2, 2).Shape.TextFrame.TextRange.Text = "Member 1 Name"
+            .Cell(2, 3).Shape.TextFrame.TextRange.Text = "Roll No. 1"
+            .Cell(2, 4).Shape.TextFrame.TextRange.Text = "PRN 1"
+            
+            .Cell(3, 1).Shape.TextFrame.TextRange.Text = "2"
+            .Cell(3, 2).Shape.TextFrame.TextRange.Text = "Member 2 Name"
+            .Cell(3, 3).Shape.TextFrame.TextRange.Text = "Roll No. 2"
+            .Cell(3, 4).Shape.TextFrame.TextRange.Text = "PRN 2"
+            
+            .Cell(4, 1).Shape.TextFrame.TextRange.Text = "3"
+            .Cell(4, 2).Shape.TextFrame.TextRange.Text = "Member 3 Name"
+            .Cell(4, 3).Shape.TextFrame.TextRange.Text = "Roll No. 3"
+            .Cell(4, 4).Shape.TextFrame.TextRange.Text = "PRN 3"
+            
+            .Cell(5, 1).Shape.TextFrame.TextRange.Text = "4"
+            .Cell(5, 2).Shape.TextFrame.TextRange.Text = "Member 4 Name"
+            .Cell(5, 3).Shape.TextFrame.TextRange.Text = "Roll No. 4"
+            .Cell(5, 4).Shape.TextFrame.TextRange.Text = "PRN 4"
+        End With
+    End With
+
+
+    ' Slide 3: Introduction
+    slideIndex = slideIndex + 1
+    With pptPres.Slides.Add(slideIndex, 2) ' 2 represents ppLayoutText
+        .Shapes(1).TextFrame.TextRange.Text = "Introduction"
+        .Shapes(2).TextFrame.TextRange.Text = "This presentation showcases a full-stack E-Commerce website built using the MERN stack and integrated with the Razorpay payment gateway."
+        .Shapes(2).TextFrame.TextRange.Text = .Shapes(2).TextFrame.TextRange.Text & vbCrLf & "Key technologies used include MongoDB, Express.js, React, Node.js, and Razorpay."
+    End With
+    
+    ' Slide 4: Key Features
+    slideIndex = slideIndex + 1
+    With pptPres.Slides.Add(slideIndex, 2)
+        .Shapes(1).TextFrame.TextRange.Text = "Key Features"
+        .Shapes(2).TextFrame.TextRange.Text = "For Customers:" & vbCrLf & "- Product Carousel" & vbCrLf & "- Filter Products" & vbCrLf & "- Sort Products" & vbCrLf & "- Categorize Products" & vbCrLf & "- Product Details & Reviews" & vbCrLf & "- Payment Gateway with Razorpay"
+    End With
+    
+    ' Slide 5: Customer Features
+    slideIndex = slideIndex + 1
+    With pptPres.Slides.Add(slideIndex, 2)
+        .Shapes(1).TextFrame.TextRange.Text = "Customer Features"
+        .Shapes(2).TextFrame.TextRange.Text = "Product Carousel" & vbCrLf & "Filter & Sort Products" & vbCrLf & "Pagination"
+    End With
+    
+    ' Slide 6: Customer Features (cont'd)
+    slideIndex = slideIndex + 1
+    With pptPres.Slides.Add(slideIndex, 2)
+        .Shapes(1).TextFrame.TextRange.Text = "Customer Features (cont'd)"
+        .Shapes(2).TextFrame.TextRange.Text = "Categorize Products" & vbCrLf & "Product Details & Reviews" & vbCrLf & "Order History & Tracking"
+    End With
+    
+    ' Slide 7: Admin Features
+    slideIndex = slideIndex + 1
+    With pptPres.Slides.Add(slideIndex, 2)
+        .Shapes(1).TextFrame.TextRange.Text = "Admin Features"
+        .Shapes(2).TextFrame.TextRange.Text = "Manage Orders" & vbCrLf & "Update Order Status" & vbCrLf & "Create & Delete Products"
+    End With
+    
+    ' Slide 8: Integration with Razorpay
+    slideIndex = slideIndex + 1
+    With pptPres.Slides.Add(slideIndex, 2)
+        .Shapes(1).TextFrame.TextRange.Text = "Integration with Razorpay"
+        .Shapes(2).TextFrame.TextRange.Text = .Shapes(2).TextFrame.TextRange.Text & vbCrLf & "Step 1: Sign Up for a Razorpay Account" & vbCrLf & "Step 2: Obtain API Keys" & vbCrLf & "Step 3: Install Razorpay SDK" & vbCrLf & "Step 4: Initialize Razorpay" & vbCrLf & "Step 5: Create Payment Button" & vbCrLf & "Step 6: Handle Payment Request" & vbCrLf & "Step 7: Redirect to Razorpay Checkout" & vbCrLf & "Step 8: Confirm Payment Status" & vbCrLf & "Step 9: Handle Payment Responses"
+    End With
+
+    ' Slide 9: Demonstration
+    slideIndex = slideIndex + 1
+    With pptPres.Slides.Add(slideIndex, 1)
+        .Shapes(1).TextFrame.TextRange.Text = "Demonstration"
+        ' Add visual demonstration of website features (screenshots or mockups) if available
+    End With
+    
+    ' Slide 10: Benefits
+    slideIndex = slideIndex + 1
+    With pptPres.Slides.Add(slideIndex, 2)
+        .Shapes(1).TextFrame.TextRange.Text = "Benefits"
+        ' Add benefits of using the website for both customers and admins
+    End With
+    
+    ' Slide 11: Conclusion
+    slideIndex = slideIndex + 1
+    With pptPres.Slides.Add(slideIndex, 2)
+        .Shapes(1).TextFrame.TextRange.Text = "Conclusion"
+        .Shapes(2).TextFrame.TextRange.Text = "User friendly Interface" & vbCrLf & "Payment Gateway Integration with Razorpay" & vbCrLf & "Seamless shopping experience for customers"
+    End With
+
+    ' Slide 12: Thank You
+    slideIndex = slideIndex + 1
+    With pptPres.Slides.Add(slideIndex, 1) ' 1 represents ppLayoutTitle
+        .Shapes(1).TextFrame.TextRange.Text = "Thank You"
+    End With
+
+    
